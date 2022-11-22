@@ -3,7 +3,7 @@
 //Mysql
 const DBDRIVE = 'mysql';
 const DBHOST = 'localhost';
-const DBNAME = 'banco';
+const DBNAME = 'univates';
 const DBUSER = 'root';
 const DBPASS = '';
 const DBPORT = '3306';

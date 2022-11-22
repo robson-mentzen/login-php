@@ -15,14 +15,14 @@
     </head>
 
     <body>
-        <form method="post" action="conexao.php">
+        <form method="post" action="actions/actions_login.php">
             <div>
                 <label>Usuário</label>
-                <input type="text" id="usuario" nome="usuario">
+                <input type="text" id="usuario" name="usuario">
             </div>
             <div>
                 <label>Senha</label>
-                <input type="password" id="senha" nome="senha">
+                <input type="password" id="senha" name="senha">
             </div>
             <div>
                 <input type="submit" id="logar" value="ENTRAR">

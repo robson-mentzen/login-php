@@ -17,8 +17,9 @@ $stmt->bindValue(":senha", $senha);
 $stmt->execute(); //executa o SQL com os parametros passados acima
 $retorno = $stmt->fetch(PDO::FETCH_ASSOC); //armazena na variável retorno, os dados obtidos da consulta
 if ($retorno) { //retorno está preenchido e não é falso?
-    echo "Olá, " . $retorno["nome"] . "!";
-    $_SESSION["erro"] = "";
+    $_SESSION["logado"] = true;
+    $_SESSION["usuario"] = $retorno["nome"];
+    header('Location: ../index.php');
 } else {
     $_SESSION["erro"] = "Dados de acesso inválidos";
     header('Location: ../login.php'); //navega até a tela de login

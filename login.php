@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -24,6 +28,13 @@
                 <label>Senha</label>
                 <input type="password" id="senha" name="senha">
             </div>
+
+            <?php
+                if (isset($_SESSION["ERROR"])) {
+                    echo $_SESSION["erro"];
+                }
+            ?>
+
             <div>
                 <input type="submit" id="logar" value="ENTRAR">
             </div>

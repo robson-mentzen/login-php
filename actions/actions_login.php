@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 //abrir uma conexão com o banco de dados
 $conexao = require('../database/config.php');
@@ -17,8 +18,10 @@ $stmt->execute();
 $retorno = $stmt->fetch(PDO::FETCH_ASSOC);
 if ($retorno) {
     echo "Olá, " . $retorno["nome"] . "!";
+    $_SESSION["erro"] = "";
 } else {
-    echo "Login Inválido";
+    $_SESSION["erro"] = "Dados de acesso inválidos";
+    header('Location: ../login.php');
 }
 
 //pegar os dados que vieram no formulário e testar se são válidos

@@ -11,6 +11,7 @@ session_start();
    </head>
 
     <body>
+        <div class >
         <form method="post" action="actions/actions_login.php">
             <div>
                 <label>Usuário:</label>

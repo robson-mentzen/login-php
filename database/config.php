@@ -1,12 +1,12 @@
 <?php
 
-//Mysql
+//definição de variáveis do banco de dados
 const DBDRIVE = 'mysql';
 const DBHOST = 'localhost';
 const DBNAME = 'univates';
 const DBUSER = 'root';
 const DBPASS = '';
-const DBPORT = '3306';
+const DBPORT = '3306'; //porta padrão do MySql é a 3306
 
 try {
     $con = new PDO(DBDRIVE . ':host=' . DBHOST .

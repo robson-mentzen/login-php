@@ -1,16 +1,16 @@
 <?php
 session_start();
-
 if (isset($_SESSION['logado'])) {
     header('Location: index.php');
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
     <head>
         <title>Login</title>
-        
+
         <style>
             html,
             body {
@@ -39,10 +39,6 @@ if (isset($_SESSION['logado'])) {
                 margin: 0 auto;
             }
 
-            .form-signin .checkbox {
-                font-weight: 400;
-            }
-
             .form-signin .form-control {
                 position: relative;
                 box-sizing: border-box;
@@ -55,16 +51,13 @@ if (isset($_SESSION['logado'])) {
                 z-index: 2;
             }
 
-            .form-signin input[type="email"] {
-                margin-bottom: -1px;
-                border-bottom-right-radius: 0;
-                border-bottom-left-radius: 0;
+            .form-signin input[type="text"] {
+                border-radius: 10px;
             }
 
             .form-signin input[type="password"] {
                 margin-bottom: 10px;
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
+                border-radius: 10px;
             }
         </style>
 
@@ -72,22 +65,21 @@ if (isset($_SESSION['logado'])) {
     </head>
 
     <body>
-        <div class="container">
-            <?php
-            if (isset($_SESSION['erro'])) {
-                echo "<script>mensagem_erro('" . $_SESSION['erro'] . "')</script>";
-                unset($_SESSION['erro']);
-            }
-            ?>
-            <form class="form-signin" method="post" action="actions/actions_login.php">
-                <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="logo_bootstrap" width="72" height="72">
-                <h3 class="mb-3 font-weight-normal">Acesso ao sistema</h3>
+        <?php
+        if (isset($_SESSION['erro'])) {
+            echo "<script>mensagem_erro('" . $_SESSION['erro'] . "')</script>";
+            unset($_SESSION['erro']);
+        }
+        ?>
+        <form class="form-signin" method="post" action="actions/actions_login.php">
+            <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="logo_bootstrap" width="72" height="72">
+            <h3 class="mb-3 font-weight-normal">Acesso ao sistema</h3>
 
-                <input type="text" name="usuario" class="form-control mb-2" placeholder="Usuário" required autofocus>
-                <input type="password" name="senha" class="form-control" placeholder="Senha" required>
+            <input type="text" name="usuario" class="form-control mb-2" placeholder="Usuário" required autofocus>
+            <input type="password" name="senha" class="form-control" placeholder="Senha" required>
 
-                <button class="btn btn-primary" type="submit">Entrar</button>
-            </form>
-        </div>
+            <button class="btn btn-primary" type="submit">Entrar</button>
+        </form>
     </body>
+    
 </html>

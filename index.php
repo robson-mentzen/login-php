@@ -5,12 +5,17 @@ if (!isset($_SESSION['logado'])) {
     header('Location: login.php');
 }
 
-echo "INDEX";
-
 ?>
 
-<head>
-    <?php include('components/js.php') ?>
-</head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <?php include('components/js.php') ?>
+    </head>
 
-<button onclick="confirmar_logout()">SAIR</button>
+    <body>
+        <?php include('database/menu.php') ?>
+
+        <button class="btn btn-primary" onclick="confirmar_logout()">SAIR</button>
+    </body>
+</html>

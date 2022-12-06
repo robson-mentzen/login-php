@@ -86,7 +86,7 @@ if (isset($_SESSION['logado'])) {
                 <input type="text" name="usuario" class="form-control mb-2" placeholder="Usuário" required autofocus>
                 <input type="password" name="senha" class="form-control" placeholder="Senha" required>
 
-                <button class="btn btn-danger" type="submit">Entrar</button>
+                <button class="btn btn-primary" type="submit">Entrar</button>
             </form>
         </div>
     </body>

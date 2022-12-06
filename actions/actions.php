@@ -14,5 +14,19 @@ if($tipo == 'cliente'){
 
     $nome = $_POST["nome"];
 
-    echo $nome;
+    if(!isset($nome) || $nome == ''){
+        $_SESSION['erro'] = "Informe um nome para o cliente":
+        header('location: ../clientes.php');
+        exit();
+    }
+
+    $sql = "INSERT INTO clientes (nome) VALUES(?)";
+    $stmt = $conexao->prepare($sql);
+    $return = $stmt->execute([$nome]);
+
+    if ($return){
+        $_SESSION['sucesso'] = "Cliente incluído com sucesso!";
+        header('location: ../clientes_lista.php');
+        exit();
+    }
 }

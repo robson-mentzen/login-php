@@ -45,11 +45,11 @@ if (isset($_GET["id"])) {
                     </div>
                     <div class="col-md-8">
                         <label>Email</label>
-                        <input type="text" class="form-control" value="<?php echo ($email != null ? $email['email'] : "") ?>">
+                        <input type="text" class="form-control" value="<?php echo ($cliente != null ? $cliente['email'] : "") ?>">
                     </div>
                 </div>
             </form>
         </div>
     </body>
-    
+
 </html>

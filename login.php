@@ -81,5 +81,5 @@ if (isset($_SESSION['logado'])) {
             <button class="btn btn-primary" type="submit">Entrar</button>
         </form>
     </body>
-    
+
 </html>

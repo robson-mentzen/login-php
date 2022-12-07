@@ -19,15 +19,14 @@ $conexao = require('database/config.php');
         <?php include('components/js.php')?>
     </head>
 
-    <body class="fundo">
+    <body>
         <div class="container">
             <?php include('menu.php') ?>
             <div id="nav-menu"></div>
             <h2>Clientes:</h2>
 
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
+                <div class="col-md-12">
 
                 <a class='btn btn-block btn-primary' href='clientes.php'>
                     Novo Cliente</a>
@@ -36,6 +35,7 @@ $conexao = require('database/config.php');
                         <thead>
                             <tr>
                                 <th scope="col">Nome</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Ações</th>
                             </tr>
                         </thead>
@@ -45,7 +45,8 @@ $conexao = require('database/config.php');
                                 $stmt -> execute();
                                 while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                                     echo "<tr>
-                                            <td>" . $row['nome'] . "</td> 
+                                            <td>" . $row['nome'] . "</td>
+                                            <td>" . $row['email'] . "</td> 
                                             <td> <a class='btn btn-md btn-success'
                                             href='clientes.php?id=". $row['id'] . "'>
                                             <i class='fa fa-edit'></i></a>
@@ -58,9 +59,7 @@ $conexao = require('database/config.php');
                         </tbody>
                     </table>
                 </div>
-                <div class="col-md-2"></div>
             </div>
-            <script src="JS/scripts.js"></script>
         </div>   
     </body>
     

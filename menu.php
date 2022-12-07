@@ -17,3 +17,14 @@
         </ul>
     </div>
 </nav>
+
+<?php
+    if (isset($_SESSION['erro'])) {
+        echo "<script>mensagem_erro('" . $_SESSION['erro'] . "')</script>";
+        unset($_SESSION['erro']);
+    }
+    if (isset($_SESSION['sucesso'])) {
+        echo "<script>mensagem_sucesso('" . $_SESSION['sucesso'] . "')</script>";
+        unset($_SESSION['sucesso']);
+    }
+?>

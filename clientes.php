@@ -3,10 +3,12 @@ session_start();
 if (!isset($_SESSION['logado'])) {
     header('Location: login.php');
 }
+
+//abrir uma conexão com o banco de dados
 $conexao = require('database/config.php');
 
 $cliente = null;
-if (isset($_GET["id"])) {
+if (isset($_GET["id"])) { //isset = Verifica se existe o parametro ID na URL
 
     $id = $_GET['id'];
 
@@ -18,10 +20,11 @@ if (isset($_GET["id"])) {
     $retorno = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($retorno) {
         $cliente = $retorno;
-        $email = $retorno;
-    };
+    }
 }
 ?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -37,15 +40,30 @@ if (isset($_GET["id"])) {
     <body class="fundo">
         <div class="container">
             <?php include('menu.php') ?>
-            <form>
+            <form method="post" action="actions/actions.php?tipo=cliente">
                 <div class="row">
                     <div class="col-md-4">
-                        <label>Nome</label>
-                        <input type="text" class="form-control" value="<?php echo ($cliente != null ? $cliente['nome'] : "") ?>">
+                        <form method="post" action="actions/actions.php?tipo=cliente">
+
+                            <input type="hidden" class="form-control" name="id" value="<?php echo ($cliente != null ? $cliente['id'] : '') ?>">
+                            <label>Nome</label>
+                            <input type="text" class="form-control" value="<?php echo ($cliente != null ? $cliente['nome'] : "") ?>">
+                        </form>
                     </div>
+
                     <div class="col-md-8">
-                        <label>Email</label>
-                        <input type="text" class="form-control" value="<?php echo ($cliente != null ? $cliente['email'] : "") ?>">
+                        <form method="post" action="actions/actions.php?tipo=cliente">
+
+                            <label>Email</label>
+                            <input type="email" class="form-control" value="<?php echo ($cliente != null ? $cliente['email'] : "") ?>">
+                        </form>
+                    </div>
+
+                    <div class="col-md-6">
+                        <form method="post" action="actions/actions.php?tipo=cliente">
+                            <button class="btn btn-secondary" type="reset">Limpar</button>
+                            <button class="btn btn-primary" type="submit">Salvar</button>
+                        </form>
                     </div>
                 </div>
             </form>

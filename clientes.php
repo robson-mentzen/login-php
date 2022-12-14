@@ -37,36 +37,62 @@ if (isset($_GET["id"])) { //isset = Verifica se existe o parametro ID na URL
         <?php include('components/js.php') ?>
     </head>
 
-    <body class="fundo">
+    <body>
         <div class="container">
             <?php include('menu.php') ?>
-            <form method="post" action="actions/actions.php?tipo=cliente">
-                <div class="row">
-                    <div class="col-md-4">
-                        <form method="post" action="actions/actions.php?tipo=cliente">
 
-                            <input type="hidden" class="form-control" name="id" value="<?php echo ($cliente != null ? $cliente['id'] : '') ?>">
-                            <label>Nome</label>
-                            <input type="text" class="form-control" name="nome" value="<?php echo ($cliente != null ? $cliente['nome'] : "") ?>">
-                        </form>
-                    </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" action="actions/actions.php?tipo=cliente">
+                        <input type="hidden" class="form-control" name="id" value="<?php echo ($cliente != null ? $cliente['id'] : '') ?>">
+                        <div class="row mb-3">
+                            <div class="col-sm-6 col-md-6">
+                                <input type="hidden" class="form-control" name="id" value="<?php echo ($cliente != null ? $cliente['id'] : '') ?>">
+                                <label>Nome:</label>
+                                <input type="text" class="form-control" name="nome" value="<?php echo ($cliente != null ? $cliente['nome'] : "") ?>">
+                            </div>
 
-                    <div class="col-md-8">
-                        <form method="post" action="actions/actions.php?tipo=cliente">
+                            <div class="col-sm-6 col-md-6">
+                                <label>E-mail:</label>
+                                <input type="email" class="form-control" name="email" value="<?php echo ($cliente != null ? $cliente['email'] : "") ?>">
+                            </div>
 
-                            <label>Email</label>
-                            <input type="email" class="form-control" name="email" value="<?php echo ($cliente != null ? $cliente['email'] : "") ?>">
-                        </form>
-                    </div>
+                            <div class="col-sm-6 col-md-6">
+                                <label>Telefone:</label>
+                                <input type="text" class="form-control" name="telefone" value="<?php echo ($cliente != null ? $cliente['telefone'] : "") ?>">
+                            </div>
 
-                    <div class="col-md-6">
-                        <form method="post" action="actions/actions.php?tipo=cliente">
-                            <button class="btn btn-secondary" type="reset">Limpar</button>
+                            <div class="col-sm-6 col-md-6">
+                                <label>Data de Nascimento:</label>
+                                <input type="date" class="form-control" name="data_nascimento" value="<?php echo ($cliente != null ? $cliente['data_nascimento'] : "") ?>">
+                            </div>
+
+                            <div class="col-sm-6 col-md-6">
+                                <label>Cidade:</label>
+                                <select class='form-control' name="id_cidade">
+                                    <?php
+                                    $stmt = $conexão->prepare("SELECT id, nome FROM cidades ORDER BY nome");
+                                    $stmt->execute();
+                                    echo "<option value='0'>SELECIONE...</option>";
+                                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                        if ($cliente != null && $cliente['id_cidade'] == $row['id']) {
+                                            echo "<option selected values='" . $row['id'] . "'>" . $row['nome'] . "</option>";
+                                        } else {
+                                            echo "<option value='" . $row['id'] . "'>" . $row['nome'] . "</option";
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-4 col-md-4">
+                            <input class="btn btn-secondary" value="Limpar" type="reset">
                             <button class="btn btn-primary" type="submit">Salvar</button>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </body>
 

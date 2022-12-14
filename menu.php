@@ -12,7 +12,7 @@
                 <a class="nav-link" href="clientes_lista.php"> Clientes <span class="sr-only">Página Atual</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="pagina3.html"> <span class="sr-only">Página Atual</span></a>
+                <a class="nav-link" href="cidades_lista.php"> Cidades <span class="sr-only">Página Atual</span></a>
             </li>
         </ul>
     </div>

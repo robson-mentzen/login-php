@@ -41,7 +41,7 @@ $conexao = require('database/config.php');
                         </thead>
                         <tbody>
                             <?php
-                                $stmt = $conexao ->prepare("SELECT cli.id, cli.email, cli.nome, c.nome as cidade 
+                                $stmt = $conexao ->prepare("SELECT cli.id, cli.email, cli.nome, c.nome AS cidade 
                                                             FROM clientes cli, cidades c 
                                                             WHERE cli.id_cidade = c.id");
                                 $stmt -> execute();

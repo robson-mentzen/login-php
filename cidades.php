@@ -48,12 +48,12 @@ if (isset($_GET["id"])) { //isset = Verifica se existe o parametro ID na URL
                         <div class="row mb-3">
                             <div class="col-sm-6 col-md-6">
                                 <label>Cidade:</label>
-                                <input type="text" class="form-control" name="nome" value="<?php echo ($cidade != null ? $cidade['nome'] : "") ?>">
+                                <input type="text" class="form-control" name="nome" placeholder="Cidade" value="<?php echo ($cidade != null ? $cidade['nome'] : "") ?>">
                             </div>
 
                             <div class="col-sm-6 col-md-6">
                                 <label>Sigla do Estado:</label>
-                                <input type="text" class="form-control" name="sigla_estado" value="<?php echo ($cidade != null ? $cidade['sigla_estado'] : "") ?>">
+                                <input type="text" class="form-control" name="sigla_estado" placeholder="UF" value="<?php echo ($cidade != null ? $cidade['sigla_estado'] : "") ?>">
                             </div>
                         </div>
                         

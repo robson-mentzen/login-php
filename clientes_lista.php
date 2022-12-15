@@ -35,23 +35,27 @@ $conexao = require('database/config.php');
                             <tr>
                                 <th scope="col">Nome</th>
                                 <th scope="col">E-mail</th>
+                                <th scope="col">Cidade</th>
                                 <th scope="col">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                                $stmt = $conexao ->prepare("SELECT * FROM  clientes ORDER BY nome");
+                                $stmt = $conexao ->prepare("SELECT cli.id, cli.email, cli.nome, c.nome as cidade 
+                                                            FROM clientes cli, cidades c 
+                                                            WHERE cli.id_cidade = c.id");
                                 $stmt -> execute();
                                 while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                                     echo "<tr>
                                             <td>" . $row['nome'] . "</td>
                                             <td>" . $row['email'] . "</td>
+                                            <td>" . $row['cidade'] . "</td>
                                             <td> 
                                                 <a class='btn btn-md btn-success'
                                                 href='clientes.php?id=". $row['id'] . "'>
                                                 <i class='fa fa-edit'></i></a>
                                                 <a class='btn btn-md btn-danger'
-                                                href='actions/delete.php?id=" . $row['id'] . "'>
+                                                href='actions/delete.php?chave=" . $row['id'] . "&tabela=clientes'>
                                                 <i class='fa fa-trash'></i></a>
                                             </td>
                                         </tr>";

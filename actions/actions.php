@@ -19,6 +19,7 @@ if ($tipo == 'cliente') {
     $email = $_POST["email"];
     $telefone = $_POST["telefone"];
     $data_nascimento = $_POST["data_nascimento"];
+    $id_cidade = $_POST["id_cidade"];
 
 
     if (!isset($nome) || $nome == '') {
@@ -46,9 +47,9 @@ if ($tipo == 'cliente') {
     }
 
     if (isset($id) && $id != '') {
-        $sql = "UPDATE clientes SET nome = ?, email = ?, telefone = ?, data_nascimento = ? WHERE id = ?";
+        $sql = "UPDATE clientes SET nome = ?, email = ?, telefone = ?, data_nascimento = ?, id_cidade = ? WHERE id = ?";
         $stmt = $conexao->prepare($sql);
-        $return = $stmt->execute([$nome, $email, $telefone, $data_nascimento, $id]);
+        $return = $stmt->execute([$nome, $email, $telefone, $data_nascimento, $id_cidade, $id]);
 
         if ($return) {
             $_SESSION['sucesso'] = "Cliente alterado com sucesso!";
@@ -56,9 +57,9 @@ if ($tipo == 'cliente') {
             exit();
         }
     } else {
-        $sql = "INSERT INTO clientes (nome, email, telefone, data_nascimento) VALUES(?,?,?,?)";
+        $sql = "INSERT INTO clientes (nome, email, telefone, data_nascimento, id_cidade) VALUES(?,?,?,?,?)";
         $stmt = $conexao->prepare($sql);
-        $return = $stmt->execute([$nome, $email, $telefone, $data_nascimento]);
+        $return = $stmt->execute([$nome, $email, $telefone, $data_nascimento, $id_cidade]);
 
         if ($return) {
             $_SESSION['sucesso'] = "Cliente incluído com sucesso!";

@@ -6,8 +6,8 @@ $conexao = require('../database/config.php');
 $tabela = $_GET["tabela"];
 $chave = $_GET["chave"];
 
-$sql = "UPDATE ". $tabela ." SET excluído = true WHERE id = ?";
-$stmt = $conexão->prepare($sql);
+$sql = "DELETE FROM ". $tabela ." WHERE id = ?";
+$stmt = $conexao->prepare($sql);
 $return = $stmt->execute([$chave]);
 
 if ($return) {

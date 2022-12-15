@@ -48,10 +48,10 @@ $conexao = require('database/config.php');
                                             <td>" . $row['sigla_estado'] . "</td>
                                             <td> 
                                                 <a class='btn btn-md btn-success'
-                                                href='cidades.php?id=". $row['id'] . "'>
+                                                href='clientes.php?id=". $row['id'] . "'>
                                                 <i class='fa fa-edit'></i></a>
                                                 <a class='btn btn-md btn-danger'
-                                                href='actions/delete.php?id=" . $row['id'] . "'>
+                                                href='actions/delete.php?chave=" . $row['id'] . "&tabela=cidades'>
                                                 <i class='fa fa-trash'></i></a>
                                             </td>
                                         </tr>";

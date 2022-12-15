@@ -12,6 +12,6 @@ $return = $stmt->execute([$chave]);
 
 if ($return) {
     $_SESSION['sucesso'] = "Registro excluído com sucesso!";
-    header('Location: ../index.php');
+    header('Location: ../clientes_lista.php');
     exit();
 }
